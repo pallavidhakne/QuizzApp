@@ -4,9 +4,7 @@ import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import path from "path";
 //router files
-import userRoutes from './routes/userRoutes'
-
-app.use("/api/user",userRoutes);
+import userRoutes from './routes/userRoutes.js';
 dotenv.config();
 
 (async () => {
@@ -21,6 +19,9 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+app.use(express.json());
+
+app.use("/api/user",userRoutes);
 app.get('/',(req,res)=>{
     res.send("Hellooooo")
 })

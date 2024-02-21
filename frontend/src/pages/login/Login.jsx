@@ -14,6 +14,8 @@ function Login() {
                     <Input placeholder="Password" type="password"/>
                 </Form.Item>
                 <Button>LOGIN</Button>
+                <h3>Don't Have Account?</h3>
+                <Link to="/register">Create Account</Link>
             </Form>
         </div>
     </div>

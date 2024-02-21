@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-var schema=new mongoose.Schema({
+const schema=new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -12,6 +12,8 @@ var schema=new mongoose.Schema({
         type:String,
         required:true
     }
+},{
+    timestamps:true
 });
-const Userdb=mongoose.model('userdb',schema);
-module.exports=Userdb;
+const userModel=mongoose.model('user',schema);
+export default userModel;
