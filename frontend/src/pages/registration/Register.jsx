@@ -2,25 +2,27 @@ import React from 'react'
 import { Button, Form, Input } from "antd";
 import axios from 'axios';
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
-    const onFinish=async(values)=>{
+    const navigate = useNavigate();
+    const onFinishFunc=async(values)=>{
         try{
-            const response=await axios.post('/api/user/register',values);
+            const response = await axios.post('http://localhost:3000/api/user/register', values);
             if(response.data.success)
             {
                toast.success(response.data.message);
+               navigate("/login");
             }
             else
             {
-                toast.error(response.error.message);
+                toast.error(response.data ? response.data.message : 'Something went wrong');
             }
             console.log(response.data)
         }catch(error)
         {
             //console.error("Error while Registering",error.message);
-            toast.error("Something went Wrong")
+            toast.error("catch Something went Wrong")
         }
     };
 
@@ -29,7 +31,7 @@ function Register() {
         <div className='authentication-form'>
             <div className='form'>
                 <h1>Nice To Meet U</h1>
-                <Form layout='verticle' onFinish={onFinish} >
+                <Form layout='verticle' onFinish={onFinishFunc} >
                 <Form.Item label="Name" name="name">
                     <Input placeholder="Name" />
                 </Form.Item>
