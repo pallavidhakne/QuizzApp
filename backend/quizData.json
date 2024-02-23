@@ -1,0 +1,213 @@
+[
+    {
+      "category": "science",
+      "id": "63f39518989356ef48370c10",
+      "correctAnswer": "Fatigue",
+      "incorrectAnswers": [
+        "Weight loss",
+        "Headache",
+        "Nausea"
+      ],
+      "question": {
+        "text": "Which of the following is a symptom of hypothyroidism?"
+      },
+      "tags": [
+        "science",
+        "medicine",
+        "biology"
+      ],
+      "type": "text_choice",
+      "difficulty": "hard",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "science",
+      "id": "647f9dc33a4302a719271644",
+      "correctAnswer": "Spleen",
+      "incorrectAnswers": [
+        "Pancreas",
+        "Gallbladder",
+        "Appendix"
+      ],
+      "question": {
+        "text": "Which soft, purplish organ filters blood and stores platelets?"
+      },
+      "tags": [
+        "anatomy",
+        "medicine",
+        "science"
+      ],
+      "type": "text_choice",
+      "difficulty": "hard",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "music",
+      "id": "622a1c387cc59eab6f950b9b",
+      "correctAnswer": "Slayer",
+      "incorrectAnswers": [
+        "MercyMe",
+        "Three 6 Mafia",
+        "The Velvet Underground"
+      ],
+      "question": {
+        "text": "Which American thrash metal band released the studio album 'Reign in Blood'?"
+      },
+      "tags": [],
+      "type": "text_choice",
+      "difficulty": "hard",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "music",
+      "id": "622a1c387cc59eab6f950ba7",
+      "correctAnswer": "One Direction",
+      "incorrectAnswers": [
+        "Level 42",
+        "Orchestral Manoeuvres in the Dark",
+        "Blur"
+      ],
+      "question": {
+        "text": "Which English-Irish boy band released the studio album 'Up All Night'?"
+      },
+      "tags": [
+        "music"
+      ],
+      "type": "text_choice",
+      "difficulty": "medium",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "food_and_drink",
+      "id": "622a1c367cc59eab6f9502c6",
+      "correctAnswer": "Spiced Ham ",
+      "incorrectAnswers": [
+        "Special Made Artifial Meat",
+        "Superior Manufactured Artificial Meat",
+        "Special Ham"
+      ],
+      "question": {
+        "text": "What Is 'SPAM' Short For?"
+      },
+      "tags": [
+        "acronyms",
+        "food_and_drink"
+      ],
+      "type": "text_choice",
+      "difficulty": "medium",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "arts_and_literature",
+      "id": "622a1c367cc59eab6f950146",
+      "correctAnswer": "The Cheshire Cat's",
+      "incorrectAnswers": [
+        "Albert Einstein's",
+        "Imhotep's",
+        "Rita Skeeter's"
+      ],
+      "question": {
+        "text": "Whose smile remained after the rest of it had vanished?"
+      },
+      "tags": [
+        "arts_and_literature"
+      ],
+      "type": "text_choice",
+      "difficulty": "medium",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "film_and_tv",
+      "id": "625740249da29df7b05f73c7",
+      "correctAnswer": "After two male musicians witness a murder, they flee in an all-female band disguised as women.",
+      "incorrectAnswers": [
+        "A high school student is sent thirty years into the past in a time-traveling car.",
+        "A freed slave sets out to rescue his wife from a brutal plantation-owner.",
+        "A girl with her own sense of justice decides to help those around her and discovers love."
+      ],
+      "question": {
+        "text": "What is the plot of the movie Some Like It Hot?"
+      },
+      "tags": [
+        "film",
+        "film_and_tv"
+      ],
+      "type": "text_choice",
+      "difficulty": "medium",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "sport_and_leisure",
+      "id": "622a1c367cc59eab6f9500a1",
+      "correctAnswer": "Ice Hockey",
+      "incorrectAnswers": [
+        "American Football",
+        "Basketball",
+        "Tennis"
+      ],
+      "question": {
+        "text": "In which sport is the Canadian Wayne Gretzky an all time great?"
+      },
+      "tags": [
+        "people",
+        "sport",
+        "general_knowledge"
+      ],
+      "type": "text_choice",
+      "difficulty": "easy",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "general_knowledge",
+      "id": "6355b7f5e8b368eed3a6823b",
+      "correctAnswer": "nasal",
+      "incorrectAnswers": [
+        "fricative",
+        "affricative",
+        "plosive"
+      ],
+      "question": {
+        "text": "In phonetics, the m in 'mother' is an example of what kind of sound?"
+      },
+      "tags": [
+        "language",
+        "linguistics",
+        "general_knowledge",
+        "science"
+      ],
+      "type": "text_choice",
+      "difficulty": "hard",
+      "regions": [],
+      "isNiche": false
+    },
+    {
+      "category": "history",
+      "id": "622a1c377cc59eab6f95043c",
+      "correctAnswer": "Four Years",
+      "incorrectAnswers": [
+        "One Year",
+        "Nine Years",
+        "Seven Years"
+      ],
+      "question": {
+        "text": "How Long Was The American Civil War?"
+      },
+      "tags": [
+        "wars",
+        "usa",
+        "history"
+      ],
+      "type": "text_choice",
+      "difficulty": "hard",
+      "regions": [],
+      "isNiche": false
+    }
+  ]

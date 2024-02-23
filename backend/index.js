@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import cors from 'cors';
 import path from "path";
+import fs from "fs";
 //router files
 import userRoutes from './routes/userRoutes.js';
 dotenv.config();
@@ -27,6 +28,12 @@ app.use('/api/user',userRoutes);
 app.get('/',(req,res)=>{
     res.send("Hellooooo")
 })
+//accesing quiz data from json file
+app.get('/api/quizz',(req,res)=>{
+    const quizData=JSON.parse(fs.readFileSync('quizData.json','utf-8'));
+    res.send(quizData);
+})
+// server listen 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
