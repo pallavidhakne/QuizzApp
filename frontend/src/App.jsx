@@ -2,11 +2,10 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
 
-import { fatchDataFromApi } from './utils/api';
 import Register from './pages/registration/Register';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
-
+import Quiz from './pages/quiz/Quiz';
 function App() {
   return (
     <div>
@@ -16,6 +15,7 @@ function App() {
        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/quiz" element={<Quiz />} />
        </Routes>
       </BrowserRouter>
     </div>
