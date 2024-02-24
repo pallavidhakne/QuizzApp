@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <h1>Welcome to the Quiz App</h1>
-      <Link to="/quiz/1">Start Quiz</Link>
+      <Link to="/quiz/">Start Quiz</Link>
     </div>
   );
 }
