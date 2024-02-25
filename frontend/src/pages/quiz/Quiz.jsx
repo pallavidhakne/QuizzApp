@@ -1,14 +1,23 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect,useState } from 'react'
-import { Checkbox } from 'antd';
+
 function Quiz() {
     const [quiz,setquiz]= useState([]);
     const [currpageNo,setCurrPageNo]=useState(1);
-
+    // for radio button
     //creating multiple options from incorrect options and correct answer data
    // const allOptions = [questionData.correctAnswer, ...questionData.incorrectAnswers];
     const totalQuestions=5;
+    //radio button
+    const [selectedOption,setSelectOption]=useState({});
+      const handleOptionChange=(questionIndex,value)=>{
+        setSelectOption(prevState=>({
+          ...prevState,
+          [questionIndex]:value
+        }));
+    };
+
    // const [ind,setInd]=useState(0);
     //console.log("hello pallavi")
     useEffect(()=>{
@@ -16,7 +25,6 @@ function Quiz() {
         .then((response)=>{
            // console.log(response.data)
             setquiz(response.data);
-            
         })
         .catch((error)=>{
             console.log(error)
@@ -57,15 +65,22 @@ function Quiz() {
     <h1>Quiz Questions</h1>
     {currQuestion.map((question, index) => {
       const newArray = shuffleArray([...question.incorrectAnswers, question.correctAnswer], question.correctAnswer);
+      const questionIndex = IndexofFirstQuestion + index + 1;
       return (
         <div key={index}>
           <h4>Q {IndexofFirstQuestion + index + 1} {question.question.text}</h4>
           <p>Options:</p>
           <ul>
-            {newArray.map((element, index) => (
+            {newArray.map((element, optionIndex) => (
                 
-                <label key={index}>
-                <input type="checkbox" style={{ marginRight: '10px', marginLeft:'10px',padding:'10p'}} /> {element}
+                <label key={optionIndex}>
+                <input type="radio"
+                name={`option_${questionIndex}`}
+                value={element} 
+                checked={selectedOption[questionIndex]===element}
+                onChange={()=>handleOptionChange(questionIndex,element)}
+                style={{ marginRight: '10px', marginLeft:'10px',padding:'10p'}} /> {element}
+               
               </label>
             ))}
           </ul>
