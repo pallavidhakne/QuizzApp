@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Which of the following is a symptom of hypothyroidism?",
+    "options": ["Fatigue", "Headache", "Nausea", "Weight loss"]
+  },
+  {
+    "question": "Which soft, purplish organ filters blood and stores platelets?",
+    "options": ["Gallbladder", "Pancreas", "Spleen", "Appendix"]
+  },
+  {
+    "question": "Which American thrash metal band released the studio album 'Reign in Blood'?",
+    "options": ["MercyMe", "Three 6 Mafia", "The Velvet Underground", "Slayer"]
+  },
+  {
+    "question": "Which English-Irish boy band released the studio album 'Up All Night'?",
+    "options": [
+      "Blur",
+      "Level 42",
+      "One Direction",
+      "Orchestral Manoeuvres in the Dark"
+    ]
+  },
+  {
+    "question": "What is 'SPAM' short for?",
+    "options": [
+      "Special Made Artifial Meat",
+      "Special Ham",
+      "Superior Manufactured Artificial Meat",
+      "Spiced Ham"
+    ]
+  },
+  {
+    "question": "Whose smile remained after the rest of it had vanished?",
+    "options": [
+      "Albert Einstein's",
+      "Imhotep's",
+      "Rita Skeeter's",
+      "The Cheshire Cat's"
+    ]
+  },
+  {
+    "question": "What is the plot of the movie Some Like It Hot?",
+    "options": [
+      "A freed slave sets out to rescue his wife from a brutal plantation-owner.",
+      "A girl with her own sense of justice decides to help those around her and discovers love.",
+      "A high school student is sent thirty years into the past in a time-traveling car.",
+      "After two male musicians witness a murder, they flee in an all-female band disguised as women."
+    ]
+  },
+  {
+    "question": "In which sport is the Canadian Wayne Gretzky an all-time great?",
+    "options": ["American Football", "Basketball", "Ice Hockey", "Tennis"]
+  },
+  {
+    "question": "In phonetics, the m in 'mother' is an example of what kind of sound?",
+    "options": ["affricative", "fricative", "nasal", "plosive"]
+  },
+  {
+    "question": "How long was the American Civil War?",
+    "options": ["Nine Years", "One Year", "Seven Years", "Four Years"]
+  }
+]
