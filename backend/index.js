@@ -2,19 +2,40 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import path from "path";
 import fs from "fs";
-
+import path from "path";
+//model
+import quizModel from "./model/quizModel.js";
 // Router files
 import userRoutes from "./routes/userRoutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
 
 dotenv.config();
 
+async function uploadData() {
+  try {
+    //read data from json file and uploading it to the mongodb
+    const data = await fs.promises.readFile("./questionOption.json", "utf8");
+    const jsonData = JSON.parse(data);
+    await quizModel.insertMany(jsonData);
+    console.log("data Inserted successfully");
+  } catch (err) {
+    console.error("Error uploading data to the database", err);
+    throw err;
+  }
+}
 (async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Database connected successfully");
+
+    const existingData = await quizModel.find({});
+    if (existingData.length === 0) {
+      // Upload data if the database is empty
+      await uploadData();
+    } else {
+      console.log("Data already exists in the database. Skipping insertion.");
+    }
   } catch (err) {
     console.error("Error connecting to the database", err);
     throw err;
