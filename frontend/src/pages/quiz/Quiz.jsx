@@ -1,9 +1,35 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import "./quiz.css";
 function Quiz() {
   const [quizData, setquizData] = useState([]);
+  //to handle only display certain number of questions
+  const questionsperPage = 5;
+  const [currPage, setcurrPage] = useState(1);
+
+  //total pages
+  const totalPage = Math.ceil(quizData.length / questionsperPage);
+  // Calculate the index of the first and last question on the current page
+  const indexofLastQuestion = currPage * questionsperPage;
+  const indexofFirstQuestion = indexofLastQuestion - questionsperPage;
+  // Extract questions for the current page
+  const currPageQuestions = quizData.slice(
+    indexofFirstQuestion,
+    indexofLastQuestion
+  );
+  //function for change page
+  const gotoNextPage = () => {
+    if (currPage < totalPage) {
+      setcurrPage(currPage + 1);
+    }
+  };
+  const gotoPrevPage = () => {
+    if (currPage > 1) {
+      setcurrPage(currPage - 1);
+    }
+  };
+
   useEffect(() => {
     const fatchData = async () => {
       try {
@@ -19,17 +45,33 @@ function Quiz() {
     <div>
       <h1>Quiz Problems</h1>
       {/* Rendering our quiz data here */}
-      {quizData.map((quiz, index) => (
-        <div key={index}>
-          <h3>
-            Q{index + 1}
-            {quiz.question}
-          </h3>
-          {quiz.option.map((data, ind) => (
-            <p key={ind}>{data}</p>
-          ))}
-        </div>
-      ))}
+      {currPageQuestions.map((question, index) => {
+        const questionIndex = indexofFirstQuestion + index + 1;
+        return (
+          <div key={index}>
+            <h3>
+              Q {indexofFirstQuestion + index + 1}
+              {question.question}
+            </h3>
+            {question.option.map((data, ind) => (
+              <label key={ind} className="label-spacing">
+                <input type="radio" name="quizOption" className="radio-input" />
+                {data}
+                <br />
+              </label>
+            ))}
+          </div>
+        );
+      })}
+      {/* prev and next pages handing  */}
+      <div>
+        <button onClick={gotoPrevPage} disabled={currPage == 1}>
+          Prev
+        </button>
+        <button onClick={gotoNextPage} disabled={currPage == totalPage}>
+          Next
+        </button>
+      </div>
     </div>
   );
 }

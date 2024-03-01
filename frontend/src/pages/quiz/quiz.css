@@ -1,0 +1,8 @@
+.radio-input {
+  margin-right: 8px; /* Adjust space between the radio button and text */
+}
+
+.label-spacing {
+  display: block;
+  margin-bottom: 10px; /* Adjust space between each label */
+}
