@@ -31,18 +31,6 @@ async function uploadData() {
     throw err;
   }
 }
-// async function uploadData() {
-//   try {
-//     //read data from json file and uploading it to the mongodb
-//     const data = await fs.promises.readFile("./questionOption.json", "utf8");
-//     const jsonData = JSON.parse(data);
-//     await quizModel.insertMany(jsonData);
-//     console.log("data Inserted successfully");
-//   } catch (err) {
-//     console.error("Error uploading data to the database", err);
-//     throw err;
-//   }
-// }
 (async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
