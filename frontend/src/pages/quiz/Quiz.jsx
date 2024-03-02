@@ -65,7 +65,8 @@ function Quiz() {
               <label key={optionind} className="label-spacing">
                 <input
                   type="radio"
-                  name={`quizOption_${questionIndex}`}
+                  name={`quizOption_${questionIndex}`} // same name radio button belong to same group so if we have to handle it seperated and only make group of that perticular question
+                  // give given number in that name
                   className="radio-input"
                   value={data}
                   checked={selectedOption[questionIndex] === data}
