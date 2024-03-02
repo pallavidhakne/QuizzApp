@@ -8,6 +8,14 @@ function Quiz() {
   const questionsperPage = 5;
   const [currPage, setcurrPage] = useState(1);
 
+  //for single correct answer selection
+  const [selectedOption, setSelectedOption] = useState({});
+  const handleOptionChange = (questionIndex, value) => {
+    setSelectedOption((prevState) => ({
+      ...prevState,
+      [questionIndex]: value,
+    }));
+  };
   //total pages
   const totalPage = Math.ceil(quizData.length / questionsperPage);
   // Calculate the index of the first and last question on the current page
@@ -50,12 +58,20 @@ function Quiz() {
         return (
           <div key={index}>
             <h3>
-              Q {indexofFirstQuestion + index + 1}
+              Q {questionIndex}
               {question.question}
             </h3>
-            {question.option.map((data, ind) => (
-              <label key={ind} className="label-spacing">
-                <input type="radio" name="quizOption" className="radio-input" />
+            {question.option.map((data, optionind) => (
+              <label key={optionind} className="label-spacing">
+                <input
+                  type="radio"
+                  name={`quizOption_${questionIndex}`}
+                  className="radio-input"
+                  value={data}
+                  checked={selectedOption[questionIndex] === data}
+                  onChange={() => handleOptionChange(questionIndex, data)}
+                />
+                {optionind + 1}
                 {data}
                 <br />
               </label>
