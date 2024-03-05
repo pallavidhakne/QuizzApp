@@ -5,7 +5,6 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-
 const router = express.Router();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -38,4 +37,5 @@ router.get("/", async (req, res) => {
     console.log(`error in catch block ${error}`);
   }
 });
+
 export default router;

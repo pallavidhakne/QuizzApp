@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
+import "./style.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,9 +27,9 @@ function Login() {
     }
   };
   return (
-    <div>
-      <div>
-        <h1>Welcome Back</h1>
+    <div className="authentication">
+      <div className="authentication-form card p-3">
+        <h1 className="card-title">Welcome Back</h1>
         <Form layout="vertical" onFinish={onFinish}>
           <Form.Item label="Email" name="email">
             <Input placeholder="Email" />
@@ -43,7 +44,9 @@ function Login() {
             LOGIN
           </Button>
           <h3>Don't Have Account?</h3>
-          <Link to="/register">Create Account</Link>
+          <Link to="/register" className="anchor mt-2">
+            CREATE ACCOUNT
+          </Link>
         </Form>
       </div>
     </div>
