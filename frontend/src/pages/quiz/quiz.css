@@ -35,6 +35,7 @@
   vertical-align: middle; /* Align the radio button with the text */
 }
 .clear-btn {
+  display: inline-block;
   background-color: #005555;
   color: white;
   border: none;
@@ -42,6 +43,11 @@
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+  background-color: #004040;
 }
 .btn {
   display: inline-block;
