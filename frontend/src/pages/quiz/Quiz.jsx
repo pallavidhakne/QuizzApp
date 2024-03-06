@@ -49,6 +49,15 @@ function Quiz() {
     };
     fatchData();
   }, []); // Empty dependency array means this effect runs once on mount (ekbar hi run hoga)
+
+  // Function to clear the selected option for a specific question
+  const ClearSelectedOption = (questionIndex) => {
+    setSelectedOption((prevState) => {
+      const newstate = { ...prevState };
+      delete newstate[questionIndex];
+      return newstate;
+    });
+  };
   return (
     <div className="quizpage">
       <h1 className="quiz-title">Quiz Problems</h1>
@@ -80,7 +89,10 @@ function Quiz() {
                   <br />
                 </label>
               ))}
-              <button>Clear</button>
+              <button onClick={() => ClearSelectedOption(questionIndex)}>
+                Clear
+              </button>{" "}
+              <button>Check</button>
             </div>
           </div>
         );
