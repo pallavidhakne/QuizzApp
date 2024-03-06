@@ -89,20 +89,27 @@ function Quiz() {
                   <br />
                 </label>
               ))}
-              <button onClick={() => ClearSelectedOption(questionIndex)}>
+              <button
+                className="clear-btn"
+                onClick={() => ClearSelectedOption(questionIndex)}
+              >
                 Clear
-              </button>{" "}
-              <button>Check</button>
+              </button>
             </div>
           </div>
         );
       })}
       {/* prev and next pages handing  */}
-      <div>
-        <button onClick={gotoPrevPage} disabled={currPage == 1}>
+      <div className="page-change">
+        <button className="btn" onClick={gotoPrevPage} disabled={currPage == 1}>
           Prev
         </button>
-        <button onClick={gotoNextPage} disabled={currPage == totalPage}>
+
+        <button
+          className="btn"
+          onClick={gotoNextPage}
+          disabled={currPage == totalPage}
+        >
           Next
         </button>
       </div>
