@@ -67,8 +67,8 @@
 .page-change button + button {
   margin-left: 10px;
 }
-/* 
+
 button:disabled {
   background-color: #aaa;
   cursor: not-allowed;
-} */
+}
