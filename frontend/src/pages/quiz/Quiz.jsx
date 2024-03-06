@@ -50,33 +50,38 @@ function Quiz() {
     fatchData();
   }, []); // Empty dependency array means this effect runs once on mount (ekbar hi run hoga)
   return (
-    <div>
-      <h1>Quiz Problems</h1>
+    <div className="quizpage">
+      <h1 className="quiz-title">Quiz Problems</h1>
       {/* Rendering our quiz data here */}
       {currPageQuestions.map((question, index) => {
         const questionIndex = indexofFirstQuestion + index + 1;
         return (
-          <div key={index}>
-            <h3>
-              Q {questionIndex}
-              {question.question}
-            </h3>
-            {question.option.map((data, optionind) => (
-              <label key={optionind} className="label-spacing">
-                <input
-                  type="radio"
-                  name={`quizOption_${questionIndex}`} // same name radio button belong to same group so if we have to handle it seperated and only make group of that perticular question
-                  // give given number in that name
-                  className="radio-input"
-                  value={data}
-                  checked={selectedOption[questionIndex] === data}
-                  onChange={() => handleOptionChange(questionIndex, data)}
-                />
-                {optionind + 1}
-                {data}
-                <br />
-              </label>
-            ))}
+          <div>
+            <div className="card" key={index}>
+              <h3 className="question">
+                Q {questionIndex}. {question.question}
+              </h3>
+              {question.option.map((data, optionind) => (
+                <label
+                  className="option"
+                  key={optionind}
+                  className="label-spacing"
+                >
+                  <input
+                    type="radio"
+                    name={`quizOption_${questionIndex}`} // same name radio button belong to same group so if we have to handle it seperated and only make group of that perticular question
+                    // give given number in that name
+                    className="radio-input"
+                    value={data}
+                    checked={selectedOption[questionIndex] === data}
+                    onChange={() => handleOptionChange(questionIndex, data)}
+                  />
+                  {data}
+                  <br />
+                </label>
+              ))}
+              <button>Clear</button>
+            </div>
           </div>
         );
       })}

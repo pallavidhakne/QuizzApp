@@ -1,8 +1,52 @@
-.radio-input {
-  margin-right: 8px; /* Adjust space between the radio button and text */
+.quizpage {
+  background-color: #005555;
+  color: white;
+  padding: 30px;
+  font-family: "Arial", sans-serif;
 }
 
-.label-spacing {
+.quiz-title {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  color: #005555;
+  margin-bottom: 10px;
+}
+.option {
   display: block;
-  margin-bottom: 10px; /* Adjust space between each label */
+  margin-bottom: 10px;
+}
+
+.radio-input {
+  margin-right: 5px;
+  vertical-align: middle; /* Align the radio button with the text */
+}
+
+button {
+  background-color: #005555;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
 }
