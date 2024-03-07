@@ -104,13 +104,15 @@ function Quiz() {
         <button className="btn" onClick={gotoPrevPage} disabled={currPage == 1}>
           Prev
         </button>
-
         <button
           className="btn"
           onClick={gotoNextPage}
           disabled={currPage == totalPage}
         >
           Next
+        </button>
+        <button className="submit-btn" hidden={currPage !== totalPage}>
+          Submit
         </button>
       </div>
     </div>

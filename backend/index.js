@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import fs from "fs";
 import path from "path";
+import chokidar from "chokidar";
 //model
 import quizModel from "./model/quizModel.js";
 // Router files
@@ -35,14 +36,6 @@ async function uploadData() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Database connected successfully");
-
-    const existingData = await quizModel.find({});
-    if (existingData.length === 0) {
-      // Upload data if the database is empty
-      await uploadData();
-    } else {
-      console.log("Data already exists in the database. Skipping insertion.");
-    }
   } catch (err) {
     console.error("Error connecting to the database", err);
     throw err;
