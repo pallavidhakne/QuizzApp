@@ -1,0 +1,21 @@
+/****** why initial scorepage not working ******/
+initial page ={
+    function ScorePage({ score, totalQuestions }) {
+  return (
+    <div>
+      <h1>Your Score </h1>
+      <h3>
+        {score}/{totalQuestions}
+      </h3>
+    </div>
+  );
+}
+
+}
+
+reason:
+The reason why your ScorePage initially did not display the score, and now it does after the changes, is due to the method by which data is passed between components in React, especially when using React Router for navigation.
+
+Initially, your ScorePage component was set up to receive score and totalQuestions as direct props. However, when navigating with React Router using the navigate function and passing state, the data does not automatically become props of the component you navigate to. Instead, the data is placed within the location object under the state key. This discrepancy was the root of the issue.
+
+When you updated your ScorePage to use the useLocation hook and extract the score and totalQuestions from the location.state, you aligned with the correct way to pass and receive state between routes in React Router. Here's how it works:
