@@ -19,7 +19,7 @@ router.post("/quizz", async (req, res) => {
   try {
     const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     const result = await quizModel.insertMany(data);
-    console.log(`result is ${result}`);
+    // console.log(`result is ${result}`);
     res.status(200).json({ message: "Quiz Data Uploaded Successfully" });
   } catch (error) {
     console.error(error);

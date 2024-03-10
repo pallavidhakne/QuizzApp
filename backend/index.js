@@ -12,7 +12,9 @@ import quizRoutes from "./routes/quizRoutes.js";
 import answerRoutes from "./routes/answerRoutes.js";
 
 dotenv.config();
-let lastModifiedTime = new Date().toISOString();
+let lastModifiedTime = null;
+let uploadedQuestions = []; //keep track of uploaded data
+
 async function uploadData() {
   try {
     const stats = await fs.promises.stat("./questionOption.json");
@@ -23,18 +25,21 @@ async function uploadData() {
       //Insert only new data
       for (const item of jsonData) {
         const { question, options } = item;
-        const existingQuiz = await quizModel.findOne({ question });
-        if (!existingQuiz) {
-          const newQuizdata = new quizModel({
-            question,
-            option: options,
-          });
-          await newQuizdata.save();
-          lastModifiedTime = currentModifiedTime;
-          console.log("Updated Data inserted successfully");
+        if (!uploadedQuestions.includes(question)) {
+          const existingQuiz = await quizModel.findOne({ question });
+          if (!existingQuiz) {
+            const newQuizdata = new quizModel({
+              question,
+              option: options,
+            });
+            await newQuizdata.save();
+            uploadedQuestions.push(question); // Add the uploaded question to the list
+            console.log("new Data inserted successfully:", question);
+          }
         }
       }
-      console.log(" Data inserted successfully");
+      lastModifiedTime = currentModifiedTime;
+      console.log("Data insertion process completed");
     } else {
       console.log("No new data to insert");
     }
