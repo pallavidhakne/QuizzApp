@@ -58,5 +58,27 @@
   {
     "question": "How long was the American Civil War?",
     "options": ["Nine Years", "One Year", "Seven Years", "Four Years"]
+  },
+  {
+    "question": "What does the '++' operator do in C++?",
+    "options": [
+      "Increments a variable by 1",
+      "Decrements a variable by 1",
+      "Multiplies a variable by 2",
+      "Divides a variable by 2"
+    ]
+  },
+  {
+    "question": "Which C++ keyword is used to dynamically allocate memory?",
+    "options": ["alloc", "malloc", "new", "reserve"]
+  },
+  {
+    "question": "What does the 'const' keyword indicate in C++?",
+    "options": [
+      "It declares a constant variable that cannot be modified.",
+      "It specifies a variable that can be changed throughout its lifetime.",
+      "It is used to define a function that does not return a value.",
+      "It is a type qualifier for pointers."
+    ]
   }
 ]
