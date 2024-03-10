@@ -6,7 +6,7 @@ import Register from "./pages/login/Register";
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import Quiz from "./pages/quiz/Quiz";
-
+import ScorePage from "./pages/score/ScorePage";
 function App() {
   return (
     <div>
@@ -17,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/score" element={<ScorePage />} />
         </Routes>
       </BrowserRouter>
     </div>

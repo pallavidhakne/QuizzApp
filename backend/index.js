@@ -3,14 +3,11 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import fs from "fs";
-import chokidar from "chokidar";
 //model
 import quizModel from "./model/quizModel.js";
 // Router files
 import userRoutes from "./routes/userRoutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
-import answerRoutes from "./routes/answerRoutes.js";
-
 dotenv.config();
 let lastModifiedTime = null;
 let uploadedQuestions = []; //keep track of uploaded data

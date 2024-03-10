@@ -93,5 +93,15 @@
       "It is a type qualifier for pointers."
     ],
     "answer": "It declares a constant variable that cannot be modified."
+  },
+  {
+    "question": "What does the 'nullptr' keyword represent in C++?",
+    "options": [
+      "It signifies a variable that points to the next available memory location.",
+      "It is used to declare a pointer variable without initializing it.",
+      "It is a null value for non-pointer types.",
+      "It is a deprecated keyword in modern C++."
+    ],
+    "answer": "It is a null value for non-pointer types."
   }
 ]

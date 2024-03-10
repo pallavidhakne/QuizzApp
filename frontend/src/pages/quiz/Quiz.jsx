@@ -1,13 +1,18 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./quiz.css";
+import ScorePage from "../score/ScorePage";
+
 function Quiz() {
+  const navigate = useNavigate();
   const [quizData, setquizData] = useState([]);
   //to handle only display certain number of questions
   const questionsperPage = 5;
   const [currPage, setcurrPage] = useState(1);
-
+  //to handle score count
+  const [currScore, setCurrScore] = useState(0);
   //for single correct answer selection
   const [selectedOption, setSelectedOption] = useState({});
   const handleOptionChange = (questionIndex, value) => {
@@ -58,44 +63,66 @@ function Quiz() {
       return newstate;
     });
   };
+  //for count score
+  // const countScore = () => {
+  //   let score = 0;
+  //   quizData.forEach((question, index) => {
+  //     const userSelectedOption = selectedOption[index + 1];
+  //     if (userSelectedOption === question.answer) {
+  //       score++;
+  //     }
+  //   });
+  //   setCurrScore(score);
+  // };
+  //handle submit button
+  const handleScoreSubmit = () => {
+    //countScore();
+    let score = 0;
+    quizData.forEach((question, index) => {
+      const userSelectedOption = selectedOption[index + 1];
+      if (userSelectedOption === question.answer) {
+        score++;
+      }
+    });
+    // Navigate to the ScoreComponent and pass the score and totalQuestions as props
+    navigate("/score", {
+      state: { score: score, totalQuestions: quizData.length },
+    });
+  };
   return (
     <div className="quizpage">
       <h1 className="quiz-title">Quiz Problems</h1>
-      {/* Rendering our quiz data here */}
       {currPageQuestions.map((question, index) => {
         const questionIndex = indexofFirstQuestion + index + 1;
+        // Assign key to the first div inside map
         return (
-          <div>
-            <div className="card" key={index}>
-              <h3 className="question">
-                Q {questionIndex}. {question.question}
-              </h3>
-              {question.option.map((data, optionind) => (
-                <label
-                  className="option"
-                  key={optionind}
-                  className="label-spacing"
-                >
-                  <input
-                    type="radio"
-                    name={`quizOption_${questionIndex}`} // same name radio button belong to same group so if we have to handle it seperated and only make group of that perticular question
-                    // give given number in that name
-                    className="radio-input"
-                    value={data}
-                    checked={selectedOption[questionIndex] === data}
-                    onChange={() => handleOptionChange(questionIndex, data)}
-                  />
-                  {data}
-                  <br />
-                </label>
-              ))}
-              <button
-                className="clear-btn"
-                onClick={() => ClearSelectedOption(questionIndex)}
+          <div key={`question-${questionIndex}`} className="card">
+            <h3 className="question">
+              Q{questionIndex}. {question.question}
+            </h3>
+            {question.option.map((data, optionIndex) => (
+              // Ensure options have unique keys by combining questionIndex with optionIndex
+              <label
+                className="option"
+                key={`option-${questionIndex}-${optionIndex}`}
               >
-                Clear
-              </button>
-            </div>
+                <input
+                  type="radio"
+                  name={`quizOption_${questionIndex}`}
+                  className="radio-input"
+                  value={data}
+                  checked={selectedOption[questionIndex] === data}
+                  onChange={() => handleOptionChange(questionIndex, data)}
+                />
+                {data}
+              </label>
+            ))}
+            <button
+              className="clear-btn"
+              onClick={() => ClearSelectedOption(questionIndex)}
+            >
+              Clear
+            </button>
           </div>
         );
       })}
@@ -111,12 +138,15 @@ function Quiz() {
         >
           Next
         </button>
-        <button className="submit-btn" hidden={currPage !== totalPage}>
+        <button
+          className="submit-btn"
+          hidden={currPage !== totalPage}
+          onClick={handleScoreSubmit}
+        >
           Submit
         </button>
       </div>
     </div>
   );
 }
-
 export default Quiz;
