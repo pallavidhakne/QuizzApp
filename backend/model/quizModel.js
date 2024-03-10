@@ -13,6 +13,10 @@ const quizschema = mongoose.Schema(
         },
       ],
     },
+    answer: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

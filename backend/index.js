@@ -24,13 +24,14 @@ async function uploadData() {
       const jsonData = JSON.parse(data);
       //Insert only new data
       for (const item of jsonData) {
-        const { question, options } = item;
+        const { question, options, answer } = item;
         if (!uploadedQuestions.includes(question)) {
           const existingQuiz = await quizModel.findOne({ question });
           if (!existingQuiz) {
             const newQuizdata = new quizModel({
               question,
               option: options,
+              answer,
             });
             await newQuizdata.save();
             uploadedQuestions.push(question); // Add the uploaded question to the list
@@ -80,7 +81,7 @@ app.use(express.json()); // Body parsing middleware
 // Routes
 app.use("/api/user", userRoutes);
 app.use("/api/quizz", quizRoutes);
-app.use("/api/answers", answerRoutes);
+//app.use("/api/answers", answerRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hellooooo");
