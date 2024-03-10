@@ -3,13 +3,13 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import fs from "fs";
-import path from "path";
-import chokidar from "chokidar";
+
 //model
 import quizModel from "./model/quizModel.js";
 // Router files
 import userRoutes from "./routes/userRoutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
+import answerRoutes from "./routes/answerRoutes.js";
 
 dotenv.config();
 async function uploadData() {
@@ -58,6 +58,7 @@ app.use(express.json()); // Body parsing middleware
 // Routes
 app.use("/api/user", userRoutes);
 app.use("/api/quizz", quizRoutes);
+app.use("/api/answers", answerRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hellooooo");

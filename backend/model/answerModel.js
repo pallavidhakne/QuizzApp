@@ -1,17 +1,20 @@
 import mongoose from "mongoose";
-const AnswerSchema = mongoose.Schema(
+
+const AnswerSchema = new mongoose.Schema(
   {
-    questionID: {
-      type: String,
+    questionId: {
+      type: mongoose.Schema.Types.ObjectId, // Using ObjectId for references
       required: true,
+      ref: "question",
     },
     answer: {
       type: String,
       required: true,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
-const answerModel = mongoose.model("answer", AnswerSchema);
-export default answerModel;
+const AnswerModel = mongoose.model("Answer", AnswerSchema);
+
+export default AnswerModel;
